@@ -6,7 +6,6 @@ stack_t *stack_p = NULL;
 void display(stack_t *stack_temp)
 {
         int idx;
-        printf("Size of stack: %d\n",stack_temp->size);
         printf("Stack:\n");
         for(idx = stack_temp->top; idx>-1; idx--)
         {
@@ -51,7 +50,7 @@ int isStackEmpty(stack_t *stack_temp)
 int peek(stack_t *stack_temp, int idx)
 {
 	int val = -1;
-	val = stack_temp->top - idx + 1;
+	val = stack_temp->stackArr[stack_temp->top - idx + 1];
 	return val;
 }
 
@@ -62,6 +61,7 @@ int pop(stack_t *stack_temp)
 		printf("stack underflow\n");
 	else
 	{
+		val = stack_temp->stackArr[stack_temp->top];
 		stack_temp->stackArr[stack_temp->top] = 0;
 		stack_temp->top--;
 	}
@@ -74,6 +74,8 @@ int stackTop(stack_t *stack_temp)
 	if(isStackEmpty(stack_p))
 	{}
 	else
+	{
 		val = stack_temp->stackArr[stack_temp->top];
+	}
 	return val;
 }

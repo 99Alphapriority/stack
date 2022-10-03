@@ -75,6 +75,11 @@ void test_peek()
 	printf("\ntest_peek() started\n");
 	printf("Enter index to peek: ");
 	scanf("%d",&idx);
+	if(idx > stack_p->top+1)
+	{
+		printf("index greater than top\n");
+		return;
+	}
 	val = peek(stack_p, idx);
 	if(val == -1)
 		printf("stack is empty");
@@ -87,7 +92,7 @@ void test_pop()
 {
 	int val = 0;
 	printf("\ntest_pop() started\n");
-	val = pop(&stack_p);
+	val = pop(stack_p);
 	if(val == -1)
 		printf("stack is empty\n");
 	else 
@@ -102,7 +107,7 @@ void test_empty()
 	       printf("stack is Empty\n");
 	else
 	       printf("stack is not Empty\n");
-	printf("\ntest_empty() finished\n");
+	printf("test_empty() finished\n");
 }
 
 void test_full()
@@ -112,6 +117,7 @@ void test_full()
 		printf("stack is full\n");
 	else
 		printf("stack is not full\n");
+	printf("test_full() finished\n");
 }
 
 void test_top()
@@ -122,7 +128,7 @@ void test_top()
 	if(val == -1)
 		printf("stack is empty\n");
 	else
-		printf("%d is at the top of the stack\n");
+		printf("%d is at the top of the stack\n",val);
 	printf("test_top() finished\n");
 }
 	
