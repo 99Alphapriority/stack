@@ -9,7 +9,7 @@ extern void display();
 
 void run_test()
 {
-	test_fill_stack();
+//	test_fill_stack();
 	printf("Operations will be performed on the following stack:\n");
 	display(stack_p);
 	test_push();
@@ -31,7 +31,8 @@ void test_fill_stack()
 		push(stack_p);
 	do{
 		printf("Do you want to enter more values?[y/n] ");
-		scanf("%c",&resp);
+		//scanf("%c",&resp);
+		resp = getchar();
 		switch(resp)
 		{
 			case 'y':
